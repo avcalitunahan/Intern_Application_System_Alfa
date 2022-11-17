@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/edit.css'%}" rel="stylesheet" >
+</head>
+<body>
+    <div class="container">
+        <div class="screen">
+            <div class="screen__content">
+                <form action="" class="login" method="POST">
+                    {% csrf_token %}
+                    {% if error%}
+                        <div class="alert-alert-danger">
+                            {{error}}
+                        </div>
+                    {% endif %}
+                    <h1 style="color: #1967aa;">Giriş</h1>
+                    <div class="logo" ><!--<img src="{% static 'img/logo.jpeg'%}" />--></div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        no:<input type="text" name="username" oninput="maxLengthCheck(this)" class="login__input" placeholder="Giriş No:" maxlength="9">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        password:<input id="passwordId" name="password" onclick="maxLengthCheck(this)" type="password" class="login__input" placeholder="Şifre" minlength="8" maxlength="16" >
+                        <br>
+                        <input type="checkbox" onclick="passwordShowText()">Show Password
+                    </div>
+                   
+                    <button class="button login__submit" value="Login">
+                        <span class="button__text">Giriş Yap</span>
+                        <i class="button__icon fas fa-chevron-right"></i>
+                    </button>				
+                </form>
+                <div class="social-login">
+                    
+                    <div class="social-icons">
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox small">
+                           <input type="checkbox" class="custom-control-input" id="customCheck">
+                           <label class="custom-control-label" for="customCheck">Beni Hatırla</label>
+                           <p></p>
+                           <a class="small" href="forgot_password.html">Şifremi Unuttum</a>
+    
+                           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                           </head>
+                           <body>
+                           <div class="sosyalbutonlar">
+                                 <a href="https://www.facebook.com/kou92official" target="_blank" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                 <a href="https://twitter.com/kou92official" target="_blank" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                 <a href="https://plus.google.com/+kocaeli%C3%BCniversitesi" target="_blank" class="google-plus" ><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                 <a href="https://instagram.com/kou92official" target="_blank" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                 <a href="https://www.youtube.com/c/kocaeli%C3%BCniversitesi" target="_blank" class="youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                           </div>
+                           
+                        
+                           </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>		
+        </div>
+    </div>
+    <script src="{%static 'js/login.js'%}"></script>
+</body>
+</html>
